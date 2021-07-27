@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+
+    <script>
+        let{effect,reactive,ref,shallowRef,toRef,toRefs} = VueReactivity;
+        let state = reactive({name:'hy',age:11}) // 将一个普通类型  转化成一个对象中有value属性指向原来的值
+
+        // let r1 = toRef(state,'name');
+        // let r2 = toRef(state,'age');
+
+        // let r = toRefs(state)
+        let {name,age} = toRefs(state)
+
+        // let {name} = state
+
+        effect(()=>{
+            // app.innerHTML = name  // 'zf' 此时这样取出来的name是一个字符串 不会再走get
+            // app.innerHTML = r1.value + r2.value  
+            // app.innerHTML = r.name.value + r.age.value
+            app.innerHTML = name.value + age.value
+        })
+
+        setTimeout(()=>{
+            state.name = 'oooonlyhy'
+        },1000)
+    </script>
+</body>
+</html>
