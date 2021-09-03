@@ -18,7 +18,7 @@ export function shallowReactive(target) {
 export function readonly(target) {
   return createReactiveObject(target, true, readonlyHandlers);
 }
-
+ 
 // 浅的只读，第一层不能改，第二层且后面可以
 export function shallowReadonly(target) {
   return createReactiveObject(target, true, shallowReadonlyHandlers);

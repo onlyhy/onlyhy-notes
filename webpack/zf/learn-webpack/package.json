@@ -1,0 +1,14 @@
+{
+  "devDependencies": {},
+  "name": "learn-webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tapable": "^1.1.3"
+  }
+}
